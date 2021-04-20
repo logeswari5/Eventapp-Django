@@ -37,6 +37,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'eventapp.apps.EventappConfig',
+    'taggit',
+    'places.apps.PlacesConfig',
+    'django.contrib.gis',
 ]
 
 MIDDLEWARE = [
@@ -75,11 +79,14 @@ WSGI_APPLICATION = 'eventproject.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.contrib.gis.db.backends.postgis',
+        'NAME': 'd9ev6fu2t6c51v',
+        'USER': 'mrudiufjneiqaz',
+        'PASSWORD': 'd2f83b6b9640f78b0c346188980076d32b436a568dacd9dfb8981cc178ff8294',
+        'HOST': 'ec2-52-44-31-100.compute-1.amazonaws.com',
+        'PORT': '5432',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
