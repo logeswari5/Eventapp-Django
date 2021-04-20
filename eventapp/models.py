@@ -27,6 +27,5 @@ class EventTime(models.Model):
     date = models.DateField(default=date.today)
     start_time = models.TimeField(blank=True,null=True)
     end_time = models.TimeField(blank=True,null=True)
-
     def __str__(self):
         return str(self.date)

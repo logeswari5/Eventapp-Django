@@ -1,10 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-
-</body>
-</html>
+{% extends "base_generic.html" %}
+{% load bootstrap %}
+{% block x %}<title>All Events</title>{% endblock %}
+{% block content %}
+<div class="container">
+  <form method="GET">
+    {{filter.form}}
+    <button type="submit" class="btn btn-primary">Search</button>
+  </form>
+</div>
+<div class="container">
+  {% if filter.qs %}
+<table style="width:50%">
+      <tr>
+        <th>Event Title</th>
+        <th>Update Event</th>
+        <th>Remove </th>
+      </tr>
+    {% for event in filter.qs %}
+      <tr>
+        <td><a href="{{ event.get_absolute_url }}" class="event">{{ event.title }}</a></td>
+        <td><a href="{% url 'update_event' event.pk %}" class="update">Modify</a></td>
+        <td><a href="{% url 'delete_event' event.pk %}" class="button">Delete</a></td>
+      </tr>
+    {% endfor %}
+</table>
+  {% else %}
+    <p>There are no Events.</p>
+  {% endif %}
+</div>
+{% endblock %}
