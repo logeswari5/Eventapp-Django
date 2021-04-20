@@ -8,4 +8,3 @@ def index(request):
 class EventListView(generic.ListView):
     model = Event
     paginate_by = 2
-
